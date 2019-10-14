@@ -12,9 +12,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 public class MainActivity extends AppCompatActivity {
     // Write a message to the database
     FirebaseDatabase mdatabase = FirebaseDatabase.getInstance();
@@ -68,5 +65,30 @@ public class MainActivity extends AppCompatActivity {
 //            + Ty
 //            + Dan
 //            + Meo
+
+//        ArrayList<String> arrayNames = new ArrayList<>(Arrays.asList("Minh","Teo", "Ty", "Dan", "Meo"));
+//        myRef.child("danhsachhocvien").setValue(arrayNames).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if (task.isSuccessful()) {
+//                    Toast.makeText(MainActivity.this, "Thanh cong", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Log.d("BBB", task.getException().toString());
+//                }
+//            }
+//        });
+
+        //4: Object
+
+        myRef.child("trung tam").setValue(new Thongtin("38 nguyen lam, p6 q10", 01234567)).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(MainActivity.this, "Thanh cong", Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.d("BBB", task.getException().toString());
+                }
+            }
+        });
     }
 }
