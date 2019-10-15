@@ -2,9 +2,13 @@ package com.example.firebasedatabase29072019;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -90,18 +94,33 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        ArrayList<String> arrayNames = new ArrayList<>(Arrays.asList("Minh", "Teo", "Ty", "Suu", "Meo"));
-        ArrayList<String> arrayNames1 = new ArrayList<>(Arrays.asList("Minh", "Teo", "Ty", "Suu", "Meo"));
-        for (String name : arrayNames) {
-            if (name.equals("Minh")) {
-                arrayNames.remove(name);
-                for (String name1 : arrayNames1) {
-                    arrayNames1.remove(name1);
+//        ArrayList<String> arrayNames = new ArrayList<>(Arrays.asList("Minh", "Teo", "Ty", "Suu", "Meo"));
+//        ArrayList<String> arrayNames1 = new ArrayList<>(Arrays.asList("Minh", "Teo", "Ty", "Suu", "Meo"));
+//        for (String name : arrayNames) {
+//            if (name.equals("Minh")) {
+//                arrayNames.remove(name);
+//                for (String name1 : arrayNames1) {
+//                    arrayNames1.remove(name1);
+//                }
+//            }
+//
+//        }
+//        Log.d("BBB", arrayNames.size() + "");
+
+
+        // push hash map
+//        Giangvien: Kietlpt
+//
+        myRef.child("Giangvien").setValue("Le Pham Tuan Kiet").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(MainActivity.this, "Thanh cong", Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.d("BBB", task.getException().toString());
                 }
             }
+        });
 
-        }
-        Log.d("BBB", arrayNames.size() + "");
-        // push hash map
     }
 }
