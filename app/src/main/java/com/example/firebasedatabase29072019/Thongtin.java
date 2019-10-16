@@ -6,6 +6,9 @@ public class Thongtin {
     private String vitri;
     private Integer sodienthoai;
 
+    public Thongtin() {
+    }
+
     public Thongtin(String vitri, Integer sodienthoai) {
         this.vitri = vitri;
         this.sodienthoai = sodienthoai;
