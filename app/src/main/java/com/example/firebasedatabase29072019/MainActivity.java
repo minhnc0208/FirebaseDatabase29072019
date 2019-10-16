@@ -12,8 +12,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
     // Write a message to the database
@@ -111,8 +110,45 @@ public class MainActivity extends AppCompatActivity {
         // push hash map
 //        Giangvien: Kietlpt
 //
-        myRef.child("Giangvien").setValue("Le Pham Tuan Kiet").addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
+//        myRef.child("Giangvien").setValue("Le Pham Tuan Kiet").addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if (task.isSuccessful()) {
+//                    Toast.makeText(MainActivity.this, "Thanh cong", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Log.d("BBB", task.getException().toString());
+//                }
+//            }
+//        });
+//        ArrayList<String> arrayNames = new ArrayList<>(Arrays.asList("Minh", "Teo", "Ty", "Suu", "Meo"));
+//        Iterator<String> stringIterator = arrayNames.iterator();
+//        while (stringIterator.hasNext()){
+//            while(stringIterator.hasNext()){
+//                if(stringIterator.next().equals("Minh")){
+//                    stringIterator.remove();
+//
+//                }
+//            }
+//        }
+//        Log.d("BBB",arrayNames.size()+"");
+
+        //5: Hash map
+        // Cach nhan gia tri
+//        myRef.child("Giangvien").setValue("Le Pham Tuan Kiet").addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if (task.isSuccessful()) {
+//                    Toast.makeText(MainActivity.this, "Thanh cong", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Log.d("BBB", task.getException().toString());
+//                }
+//            }
+//        });
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("Android", "T2 t4 t6 time: 5h30 - 7h30");
+        hashMap.put("IOS", "T3 t5 t7: 5h30 - 7h30");
+        hashMap.put("React", "T7 CN time: 15h30 - 17h30");
+        myRef.child("thoigian").setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(MainActivity.this, "Thanh cong", Toast.LENGTH_SHORT).show();
@@ -121,6 +157,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 }
